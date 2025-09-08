@@ -9,32 +9,47 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Corporate Blue - Trust & Reliability */
+    --primary: 215 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 215 100% 40%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Energetic Red - Strength & Innovation */
+    --accent: 0 85% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 0 85% 50%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Light backgrounds */
+    --secondary: 215 20% 96%;
+    --secondary-foreground: 215 25% 15%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 215 15% 95%;
+    --muted-foreground: 215 15% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 215 100% 45%;
+
+    /* Corporate gradients */
+    --gradient-corporate: linear-gradient(135deg, hsl(215 100% 45%), hsl(215 100% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 100% 45%), hsl(0 85% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(215 20% 98%));
+
+    /* Shadows */
+    --shadow-corporate: 0 4px 20px -4px hsl(215 100% 45% / 0.15);
+    --shadow-card: 0 2px 10px -2px hsl(215 25% 15% / 0.1);
+    --shadow-hover: 0 8px 30px -8px hsl(215 100% 45% / 0.25);
 
     --radius: 0.5rem;
 
@@ -100,6 +115,51 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer components {
+  /* Corporate hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-1;
+  }
+  
+  .hover-shadow {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Gradient backgrounds */
+  .bg-gradient-corporate {
+    background: var(--gradient-corporate);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  /* Corporate animations */
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out;
+  }
+  
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
