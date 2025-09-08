@@ -5,10 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   MapPin, Phone, Mail, Clock, Building, 
-  Send, MessageSquare, HeadphonesIcon 
+  Send, MessageSquare
 } from "lucide-react";
 
 const Contact = () => {
@@ -37,14 +36,6 @@ const Contact = () => {
       details: ["Monday - Friday: 8:00 AM - 6:00 PM", "Saturday: 9:00 AM - 4:00 PM", "Sunday: Emergency only"],
       color: "accent"
     }
-  ];
-
-  const departments = [
-    { name: "General Inquiry", value: "general" },
-    { name: "Sales & Quotations", value: "sales" },
-    { name: "Technical Support", value: "technical" },
-    { name: "Customer Service", value: "customer" },
-    { name: "Partnerships", value: "partnerships" }
   ];
 
   return (
@@ -111,53 +102,14 @@ const Contact = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your.email@company.com" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" placeholder="+251-xx-xxx-xxxx" />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Company Name</Label>
-                    <Input id="company" placeholder="Your company name" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="department">Department</Label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select department" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {departments.map((dept) => (
-                          <SelectItem key={dept.value} value={dept.value}>
-                            {dept.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" placeholder="Enter your full name" />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Brief description of your inquiry" />
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" placeholder="your.email@company.com" />
                 </div>
 
                 <div className="space-y-2">
@@ -165,11 +117,11 @@ const Contact = () => {
                   <Textarea 
                     id="message" 
                     placeholder="Please provide details about your chemical requirements, quantities, delivery timeline, etc."
-                    className="min-h-[120px]"
+                    className="min-h-[150px]"
                   />
                 </div>
 
-                <Button variant="corporate" size="lg" className="w-full group">
+                <Button variant="default" size="lg" className="w-full group bg-gradient-corporate">
                   <Send className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Send Message
                 </Button>
@@ -199,36 +151,29 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              {/* Quick Contact */}
+              {/* Additional Contact Methods */}
               <Card className="hover-shadow">
                 <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <HeadphonesIcon className="h-5 w-5 text-accent" />
-                    <span>Need Immediate Assistance?</span>
-                  </CardTitle>
+                  <CardTitle>Alternative Contact Methods</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    For urgent chemical supply needs or technical emergencies, contact our rapid response team:
-                  </p>
-                  
                   <div className="space-y-3">
-                    <Button variant="accent" className="w-full justify-start" size="lg">
+                    <Button variant="outline" className="w-full justify-start" size="lg">
                       <Phone className="mr-2 h-4 w-4" />
-                      Call Emergency Line
+                      Call Our Sales Team
                     </Button>
                     <Button variant="outline" className="w-full justify-start" size="lg">
                       <Mail className="mr-2 h-4 w-4" />
-                      Email Priority Support
+                      Email Technical Support
                     </Button>
                   </div>
 
                   <div className="pt-4 border-t border-border">
                     <p className="text-sm text-muted-foreground mb-2">
-                      <strong>Emergency Response:</strong> 24/7 for chemical spills, safety incidents
+                      <strong>Response Time:</strong> Within 24 hours for all inquiries
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      <strong>Technical Support:</strong> Monday-Friday, 8 AM - 8 PM
+                      <strong>Sales Support:</strong> Monday-Friday, 8 AM - 6 PM
                     </p>
                   </div>
                 </CardContent>

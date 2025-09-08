@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -224,6 +225,7 @@ const About = () => {
         </div>
       </section>
 
+      <TeamSection />
       <Footer />
     </div>
   );

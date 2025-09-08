@@ -1,18 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Shield, Zap } from "lucide-react";
 import heroImage from "@/assets/hero-chemicals.jpg";
+import heroBgImage from "@/assets/hero-bg-chemicals.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-subtle overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
+          src={heroBgImage}
           alt="YAB Chemicals Industrial Facility"
-          className="w-full h-full object-cover opacity-10"
+          className="w-full h-full object-cover opacity-15"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70"></div>
+        <div className="absolute inset-0 bg-gradient-subtle opacity-80"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

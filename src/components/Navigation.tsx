@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import ProductDropdown from "./ProductDropdown";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,10 +11,9 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Products", path: "/products" },
     { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: "Testimonials", path: "/testimonials" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -49,14 +49,17 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              <ProductDropdown isActive={isActive("/products")} />
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* Contact Us Button */}
           <div className="hidden md:block">
-            <Button variant="default" size="sm" className="bg-gradient-corporate hover:shadow-lg">
-              Get Quote
-            </Button>
+            <Link to="/contact">
+              <Button variant="default" size="sm" className="bg-gradient-corporate hover:shadow-lg">
+                Contact Us
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -91,10 +94,19 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              <Link
+                to="/products"
+                className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Products
+              </Link>
               <div className="pt-4">
-                <Button variant="default" size="sm" className="w-full bg-gradient-corporate">
-                  Get Quote
-                </Button>
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  <Button variant="default" size="sm" className="w-full bg-gradient-corporate">
+                    Contact Us
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
