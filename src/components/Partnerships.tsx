@@ -1,18 +1,46 @@
-import { useEffect, useState } from "react";
+"use client";
+import { useEffect, useState, useRef } from "react";
 
 const Partnerships = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+  const carouselRef = useRef(null);
+
   const partners = [
-    { name: "BASF", logo: "https://upload.wikimedia.org/wikipedia/commons/2/20/BASF-Logo.svg" },
-    { name: "Dow Chemical", logo: "https://logos-world.net/wp-content/uploads/2020/11/Dow-Logo.png" },
-    { name: "DuPont", logo: "https://logos-world.net/wp-content/uploads/2020/11/DuPont-Logo.png" },
-    { name: "3M", logo: "https://logos-world.net/wp-content/uploads/2020/04/3M-Logo.png" },
-    { name: "Bayer", logo: "https://logos-world.net/wp-content/uploads/2020/04/Bayer-Logo.png" },
-    { name: "Merck", logo: "https://logos-world.net/wp-content/uploads/2020/11/Merck-Logo.png" },
-    { name: "Solvay", logo: "https://logos-world.net/wp-content/uploads/2020/11/Solvay-Logo.png" },
-    { name: "AkzoNobel", logo: "https://logos-world.net/wp-content/uploads/2020/11/AkzoNobel-Logo.png" }
+    {
+      name: "BASF",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
+    {
+      name: "Dow Chemical",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
+    {
+      name: "DuPont",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
+    {
+      name: "3M",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
+    {
+      name: "Bayer",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
+    {
+      name: "Merck",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
+    {
+      name: "Solvay",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
+    {
+      name: "AkzoNobel",
+      logo: "https://img.icons8.com/?size=100&id=QjroQ85D9B0L&format=png&color=000000",
+    },
   ];
+
+  const visibleItems = 4; // Number of items visible at once
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -31,26 +59,25 @@ const Partnerships = () => {
             Trusted <span className="text-primary">Global</span> Partners
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We source premium chemicals from world-leading manufacturers and suppliers
+            We source premium chemicals from world-leading manufacturers and
+            suppliers
           </p>
         </div>
 
         {/* Partners Carousel */}
         <div className="relative overflow-hidden">
-          <div 
+          <div
+            ref={carouselRef}
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * (100 / 4)}%)` }}
           >
             {[...partners, ...partners].map((partner, index) => (
-              <div
-                key={`${partner.name}-${index}`}
-                className="w-1/4 flex-shrink-0 px-4"
-              >
-                <div className="bg-card border rounded-lg p-8 hover-shadow hover-lift transition-all duration-300 h-32 flex items-center justify-center">
+              <div className="w-1/3 sm:w-1/6 flex-shrink-0 px-2">
+                <div className="bg-card border rounded-lg p-2 hover-shadow hover-lift transition-all duration-300 aspect-square flex items-center justify-center">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}
-                    className="max-w-full max-h-16 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    className="max-w-2/3 max-h-2/3 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               </div>
