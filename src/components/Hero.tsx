@@ -22,19 +22,22 @@ const Hero = () => {
           {/* Content */}
           <div className="animate-fade-up">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Trusted <span className="text-primary">Chemical</span> Supplier for{" "}
-              <span className="text-accent">Ethiopian</span> Industries
+              Trusted <span className="text-primary">Chemical</span> Supplier
+              for <span className="text-accent">Ethiopian</span> Industries
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              YAB Chemicals connects global markets with local industries, providing premium chemical solutions 
-              with a commitment to safety, quality, and innovation.
+              YAB Chemicals connects global markets with local industries,
+              providing premium chemical solutions with a commitment to safety,
+              quality, and innovation.
             </p>
 
             {/* Key Points */}
             <div className="flex flex-wrap gap-6 mb-8">
               <div className="flex items-center space-x-2">
                 <Globe className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">International Sourcing</span>
+                <span className="text-sm font-medium">
+                  International Sourcing
+                </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Shield className="h-5 w-5 text-primary" />
@@ -48,7 +51,10 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-corporate hover-shadow group">
+              <Button
+                size="lg"
+                className="bg-gradient-corporate hover-shadow group"
+              >
                 Explore Products
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -70,7 +76,9 @@ const Hero = () => {
                 <div className="text-muted-foreground">Countries Sourced</div>
               </div>
               <div className="bg-card p-6 rounded-lg hover-shadow hover-lift">
-                <div className="text-3xl font-bold text-primary mb-2">1000+</div>
+                <div className="text-3xl font-bold text-primary mb-2">
+                  1000+
+                </div>
                 <div className="text-muted-foreground">Satisfied Clients</div>
               </div>
               <div className="bg-card p-6 rounded-lg hover-shadow hover-lift">
@@ -83,8 +91,8 @@ const Hero = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/5 rounded-full blur-2xl"></div>
+      {/* <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/5 rounded-full blur-2xl"></div> */}
     </section>
   );
 };
