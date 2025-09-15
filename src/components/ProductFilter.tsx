@@ -1,131 +1,100 @@
-import { useState } from "react";
-import { Search, Filter, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Search, Filter, X } from "lucide-react";
+import { categories } from "@/data/products";
 
-interface ProductFilterProps {
-  onSearch: (query: string) => void;
-  onCategoryFilter: (category: string) => void;
-  onApplicationFilter: (application: string) => void;
-  selectedCategory: string;
-  selectedApplications: string[];
+interface ProductFiltersProps {
   searchQuery: string;
+  selectedCategory: string;
+  onSearchChange: (query: string) => void;
+  onCategoryChange: (category: string) => void;
+  onClearFilters: () => void;
 }
 
-const ProductFilter = ({
-  onSearch,
-  onCategoryFilter,
-  onApplicationFilter,
+const ProductFilters = ({
+  searchQuery,
   selectedCategory,
-  selectedApplications,
-  searchQuery
-}: ProductFilterProps) => {
-  const [showFilters, setShowFilters] = useState(false);
-
-  const categories = ["All", "Solvents", "Laboratory", "Specialty", "Basic", "Ceramics"];
-  const applications = [
-    "Manufacturing", "Cleaning", "Processing", "Research", "Testing", "Analysis",
-    "Custom Solutions", "R&D", "Innovation", "Construction", "Agriculture", "Textile"
-  ];
-
-  const clearFilters = () => {
-    onCategoryFilter("All");
-    selectedApplications.forEach(app => onApplicationFilter(app));
-    onSearch("");
-  };
+  onSearchChange,
+  onCategoryChange,
+  onClearFilters
+}: ProductFiltersProps) => {
+  const hasActiveFilters = searchQuery || selectedCategory !== "All Categories";
 
   return (
-    <div className="bg-card border rounded-lg p-6 mb-8">
-      <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
-        {/* Search */}
-        <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+    <Card className="bg-gradient-card border-border/50 shadow-card">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center gap-2 text-lg">
+          <Filter className="h-5 w-5 text-primary" />
+          Search & Filter Products
+        </CardTitle>
+      </CardHeader>
+      
+      <CardContent className="space-y-4">
+        {/* Search Input */}
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search products..."
+            type="text"
+            placeholder="Search by product name or description..."
             value={searchQuery}
-            onChange={(e) => onSearch(e.target.value)}
-            className="pl-10"
+            onChange={(e) => onSearchChange(e.target.value)}
+            className="pl-10 transition-smooth focus:shadow-elegant"
           />
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              size="sm"
-              onClick={() => onCategoryFilter(category)}
-              className="transition-all duration-200"
-            >
-              {category}
-            </Button>
-          ))}
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground">
+            Filter by Category
+          </label>
+          <Select value={selectedCategory} onValueChange={onCategoryChange}>
+            <SelectTrigger className="transition-smooth focus:shadow-elegant">
+              <SelectValue placeholder="Select a category" />
+            </SelectTrigger>
+            <SelectContent className="bg-popover border-border shadow-elegant z-50">
+              {categories.map((category) => (
+                <SelectItem 
+                  key={category} 
+                  value={category}
+                  className="hover:bg-accent focus:bg-accent"
+                >
+                  {category}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
-        {/* Filter Toggle */}
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setShowFilters(!showFilters)}
-          className="lg:hidden"
-        >
-          <Filter className="h-4 w-4 mr-2" />
-          Filters
-        </Button>
-
-        {/* Clear Filters */}
-        {(selectedCategory !== "All" || selectedApplications.length > 0 || searchQuery) && (
-          <Button variant="ghost" size="sm" onClick={clearFilters}>
-            <X className="h-4 w-4 mr-2" />
-            Clear
+        {/* Clear Filters Button */}
+        {hasActiveFilters && (
+          <Button 
+            variant="outline" 
+            onClick={onClearFilters}
+            className="w-full transition-bounce hover:shadow-card"
+          >
+            <X className="mr-2 h-4 w-4" />
+            Clear All Filters
           </Button>
         )}
-      </div>
 
-      {/* Advanced Filters */}
-      {(showFilters || window.innerWidth >= 1024) && (
-        <div className="mt-4 pt-4 border-t border-border">
-          <div className="space-y-4">
-            <div>
-              <h4 className="text-sm font-medium text-foreground mb-2">Applications</h4>
-              <div className="flex flex-wrap gap-2">
-                {applications.map((application) => (
-                  <Badge
-                    key={application}
-                    variant={selectedApplications.includes(application) ? "default" : "outline"}
-                    className="cursor-pointer hover:bg-primary/20 transition-colors"
-                    onClick={() => onApplicationFilter(application)}
-                  >
-                    {application}
-                  </Badge>
-                ))}
-              </div>
-            </div>
+        {/* Active Filters Summary */}
+        {hasActiveFilters && (
+          <div className="pt-2 border-t border-border/50">
+            <p className="text-sm text-muted-foreground">
+              <span className="font-medium">Active filters:</span>
+              {searchQuery && <span className="ml-1">Search: "{searchQuery}"</span>}
+              {searchQuery && selectedCategory !== "All Categories" && <span>, </span>}
+              {selectedCategory !== "All Categories" && (
+                <span className="ml-1">Category: {selectedCategory}</span>
+              )}
+            </p>
           </div>
-        </div>
-      )}
-
-      {/* Active Filters */}
-      {selectedApplications.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-border">
-          <div className="flex flex-wrap gap-2 items-center">
-            <span className="text-sm text-muted-foreground">Active filters:</span>
-            {selectedApplications.map((application) => (
-              <Badge key={application} variant="secondary" className="cursor-pointer">
-                {application}
-                <X 
-                  className="h-3 w-3 ml-1" 
-                  onClick={() => onApplicationFilter(application)}
-                />
-              </Badge>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </CardContent>
+    </Card>
   );
 };
 
-export default ProductFilter;
+export default ProductFilters;

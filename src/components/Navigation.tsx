@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import ProductDropdown from "./ProductDropdown";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +13,7 @@ const Navigation = () => {
     { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
     { name: "Testimonials", path: "/testimonials" },
+    { name: "Products", path: "/products" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -49,7 +49,6 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <ProductDropdown isActive={isActive("/products")} />
             </div>
           </div>
 
