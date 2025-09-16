@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import image3 from "@/assets/image3.jpg";
 import { useNavigate } from "react-router-dom";
 import {
   Card,
@@ -135,17 +136,24 @@ const Services: React.FC = () => {
       <Navigation />
 
       {/* Header */}
-      <section className="py-16 bg-gradient-subtle">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Our <span className="text-accent">Services</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive chemical supply solutions designed to meet the
-              diverse needs of Ethiopian industries
-            </p>
-          </div>
+      <section
+        className="py-16 bg-cover bg-center relative"
+        style={{
+          backgroundImage:
+            "url('https://i.pinimg.com/736x/6c/98/d6/6c98d6336452bd591c8b0acc064543bc.jpg')",
+        }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/30"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Our <span className="text-accent">Services</span>
+          </h1>
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            Comprehensive chemical supply solutions designed to meet the diverse
+            needs of Ethiopian industries
+          </p>
         </div>
       </section>
 
@@ -255,7 +263,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white">
+      <section className="py-10 bg-gradient-to-r from-red-600 via-red-600/50 via-blue-600/100 to-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Partner with Us?
@@ -268,8 +276,8 @@ const Services: React.FC = () => {
             variant="outline"
             size="lg"
             className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 text-white border-0 rounded-full 
-             hover:from-red-700 hover:via-red-600 hover:to-red-500 hover:shadow-lg hover:text-white 
-             transition-all duration-300 transform hover:-translate-y-1"
+    hover:from-red-700 hover:via-red-600 hover:to-red-500 hover:shadow-lg hover:text-white 
+    transition-all duration-300 transform hover:-translate-y-1"
             onClick={() => navigate("/contact")}
           >
             Contact Us
