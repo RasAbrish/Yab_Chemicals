@@ -109,12 +109,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     </div>
                   </div>
                 )}
-
-                <div className="pt-4 border-t">
-                  <Button className="w-full" size="lg">
-                    Request Quote
-                  </Button>
-                </div>
               </div>
             </DialogContent>
           </Dialog>

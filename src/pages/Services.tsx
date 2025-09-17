@@ -77,66 +77,69 @@ const ChemicalServices = () => {
   ];
 
   return (
-    <section className="p-20 ">
-      <motion.section
-        className="bg-blue-900 text-white rounded-2xl p-10 mt-20"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.div className="max-w-5xl mx-auto">
-          <span className="mb-4 inline-block px-4 py-2 border-2 border-white rounded-full shadow-lg font-semibold tracking-wide text-white">
-            What We Do?
-          </span>
-
-          <h2 className="text-4xl font-bold mt-2">
-            Supplying Quality Chemicals for Real-World Needs
-          </h2>
-          <p className="text-lg mt-4 text-gray-300">
-            We are dedicated to providing reliable chemical solutions that
-            empower industries, laboratories, and businesses with safe and
-            high-quality products.
-          </p>
-
-          <button className="mt-6 px-6 py-3 bg-red-600 hover:bg-red-700 transition rounded-xl shadow-lg">
-            Contact Us
-          </button>
-
-          <motion.div
-            className="grid md:grid-cols-2 gap-8 mt-12"
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.1 } },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {services.map((service, i) => (
-              <motion.div
-                key={i}
-                variants={sectionVariants}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-start gap-4 bg-blue-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition"
-              >
-                <div className="p-3 bg-red-600 rounded-xl text-white">
-                  {service.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">{service.title}</h3>
-                  <p className="text-gray-300 mt-2">{service.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+    <section className="px-4 sm:px-8 md:px-12 lg:px-20 py-10 md:py-20">
+    <motion.section
+      className="bg-blue-900 text-white rounded-2xl p-6 sm:p-8 md:p-10 mt-10 md:mt-20"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <motion.div className="max-w-5xl mx-auto text-center md:text-left">
+        <span className="mb-4 inline-block px-4 py-2 border-2 border-white rounded-full shadow-lg font-semibold tracking-wide text-white text-sm sm:text-base">
+          What We Do?
+        </span>
+  
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+          Supplying Quality Chemicals for Real-World Needs
+        </h2>
+        <p className="text-base sm:text-lg mt-4 text-gray-300">
+          We are dedicated to providing reliable chemical solutions that
+          empower industries, laboratories, and businesses with safe and
+          high-quality products.
+        </p>
+  
+        <button className="mt-6 px-5 sm:px-6 py-2.5 sm:py-3 bg-red-600 hover:bg-red-700 transition rounded-xl shadow-lg">
+          Contact Us
+        </button>
+  
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10 sm:mt-12"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {services.map((service, i) => (
+            <motion.div
+              key={i}
+              variants={sectionVariants}
+              whileHover={{ scale: 1.05 }}
+              className="flex items-start gap-4 bg-blue-800 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition"
+            >
+              <div className="p-2.5 sm:p-3 bg-red-600 rounded-xl text-white flex-shrink-0">
+                {service.icon}
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 mt-2 text-sm sm:text-base">
+                  {service.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
-      </motion.section>
-    </section>
+      </motion.div>
+    </motion.section>
+  </section>
+  
   );
 };
-
-// --- Main Page ---
 const Services: React.FC = () => {
   const mainServices = [
     {
