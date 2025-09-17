@@ -59,7 +59,6 @@ const Hero = () => {
         />
       ))}
       <div className="absolute inset-0 bg-black/70"></div>
-
       {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -122,9 +121,6 @@ const Hero = () => {
               Years Of Experience
             </p>
           </div>
-          <div className="text-center md:text-left">
-            <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400">
-              {clientsCount}+
             </div>
             <p className="text-gray-300 text-sm sm:text-base">
               Satisfied Clients
@@ -132,6 +128,7 @@ const Hero = () => {
           </div>
         </motion.div>
       </motion.div>
+
     </section>
   );
 };
