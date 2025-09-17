@@ -1,117 +1,121 @@
-import { useState } from "react";
+// Navigation.tsx
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "About", path: "/about" },
+    { name: "About Us", path: "/about" },
     { name: "Testimonials", path: "/testimonials" },
     { name: "Products", path: "/products" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
-  return (
-    <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-corporate rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">YAB</span>
-              </div>
-              <span className="text-xl font-bold text-foreground">YAB Chemicals</span>
-            </Link>
-          </div>
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
+  return (
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={cn(
+        "fixed top-0 left-0 w-full z-50 transition-all duration-500",
+        scrolled
+          ? "bg-black/80 backdrop-blur-md border-b border-gray-700"
+          : "bg-transparent"
+      )}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="w-9 h-9 bg-gradient-corporate rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold">YAB</span>
+            </div>
+            <span className="text-xl font-bold text-white">YAB Chemicals</span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex space-x-6">
+            {navItems.map((item, i) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+              >
                 <Link
-                  key={item.name}
                   to={item.path}
                   className={cn(
-                    "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
+                    "px-3 py-2 rounded-md text-sm font-medium transition-all",
                     isActive(item.path)
                       ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                      : "text-white hover:text-primary hover:bg-white/10"
                   )}
                 >
                   {item.name}
                 </Link>
-              ))}
-            </div>
+              </motion.div>
+            ))}
           </div>
 
-          {/* Contact Us Button */}
+          {/* Contact Button */}
           <div className="hidden md:block">
-            <Link to="/contact">
-              <Button variant="default" size="sm" className="bg-gradient-corporate hover:shadow-lg">
-                Contact Us
-              </Button>
+            <Link to="/contact"  className="bg-primary text-white hover:bg-primary/80 p-2 shadow-lg rounded-sm transition-all">
+              Contact Us
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile toggle */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2"
+              className="text-white p-2"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+              {isOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={cn(
-                    "block px-3 py-2 rounded-md text-base font-medium transition-colors",
-                    isActive(item.path)
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                  )}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Link
-                to="/products"
-                className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                Products
-              </Link>
-              <div className="pt-4">
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  <Button variant="default" size="sm" className="w-full bg-gradient-corporate">
-                    Contact Us
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
-    </nav>
+
+      {/* Mobile Nav */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="md:hidden bg-black/90 backdrop-blur-lg px-6 py-6"
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className="block py-3 text-white text-lg hover:text-primary transition"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 
