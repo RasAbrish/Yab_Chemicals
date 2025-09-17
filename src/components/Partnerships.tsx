@@ -1,85 +1,123 @@
-import { useEffect, useState } from "react";
+"use client";
 
-const Partnerships = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const partners = [
-    { name: "BASF", logo: "https://upload.wikimedia.org/wikipedia/commons/2/20/BASF-Logo.svg" },
-    { name: "Dow Chemical", logo: "https://logos-world.net/wp-content/uploads/2020/11/Dow-Logo.png" },
-    { name: "DuPont", logo: "https://logos-world.net/wp-content/uploads/2020/11/DuPont-Logo.png" },
-    { name: "3M", logo: "https://logos-world.net/wp-content/uploads/2020/04/3M-Logo.png" },
-    { name: "Bayer", logo: "https://logos-world.net/wp-content/uploads/2020/04/Bayer-Logo.png" },
-    { name: "Merck", logo: "https://logos-world.net/wp-content/uploads/2020/11/Merck-Logo.png" },
-    { name: "Solvay", logo: "https://logos-world.net/wp-content/uploads/2020/11/Solvay-Logo.png" },
-    { name: "AkzoNobel", logo: "https://logos-world.net/wp-content/uploads/2020/11/AkzoNobel-Logo.png" }
-  ];
+import * as React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % partners.length);
-    }, 3000);
+type Partner = { name: string; logo: string; url: string };
 
-    return () => clearInterval(timer);
-  }, [partners.length]);
+const PARTNERS_DATA: Partner[] = [
+  { name: "BASF", logo: "https://www.vectorlogo.zone/logos/basf/basf-ar21.svg", url: "https://www.basf.com/global/en.html" },
+  { name: "Dow Chemical", logo: "https://www.vectorlogo.zone/logos/dow/dow-ar21.svg", url: "https://www.dow.com/" },
+  { name: "DuPont", logo: "https://www.vectorlogo.zone/logos/dupont/dupont-ar21.svg", url: "https://www.dupont.com/" },
+  { name: "3M", logo: "https://www.vectorlogo.zone/logos/3m/3m-ar21.svg", url: "https://www.3m.com/" },
+  { name: "Bayer", logo: "https://www.vectorlogo.zone/logos/bayer/bayer-ar21.svg", url: "https://www.bayer.com/" },
+  { name: "Merck", logo: "https://www.vectorlogo.zone/logos/merckgroup/merckgroup-ar21.svg", url: "https://www.merckgroup.com/en" },
+  { name: "Solvay", logo: "https://www.vectorlogo.zone/logos/solvay/solvay-ar21.svg", url: "https://www.solvay.com/en" },
+  { name: "AkzoNobel", logo: "https://www.vectorlogo.zone/logos/akzonobel/akzonobel-ar21.svg", url: "https://www.akzonobel.com/" },
+  { name: "SABIC", logo: "https://www.vectorlogo.zone/logos/sabic/sabic-ar21.svg", url: "https://www.sabic.com/en" },
+  { name: "ExxonMobil", logo: "https://www.vectorlogo.zone/logos/exxonmobil/exxonmobil-ar21.svg", url: "https://www.exxonmobil.com/" },
+  { name: "Shell", logo: "https://www.vectorlogo.zone/logos/shell/shell-ar21.svg", url: "https://www.shell.com/" },
+  { name: "Huntsman", logo: "https://www.vectorlogo.zone/logos/huntsman/huntsman-ar21.svg", url: "https://www.huntsman.com/" },
+];
+
+export default function PartnershipsMarquee() {
+  const [paused, setPaused] = React.useState(false);
+  const reduceMotion = useReducedMotion();
+
+  // duplicate for seamless loop
+  const items = React.useMemo(() => [...PARTNERS_DATA, ...PARTNERS_DATA], []);
+
+  // compute duration from content width and desired speed
+  const seqRef = React.useRef<HTMLDivElement>(null);
+  const [duration, setDuration] = React.useState(40); // fallback
+  const PX_PER_SEC = 40; // slow; lower = slower
+
+  React.useEffect(() => {
+    const calc = () => {
+      if (!seqRef.current) return;
+      setDuration(seqRef.current.getBoundingClientRect().width / PX_PER_SEC);
+    };
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, []);
 
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Trusted <span className="text-primary">Global</span> Partners
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We source premium chemicals from world-leading manufacturers and suppliers
-          </p>
-        </div>
+    <section
+      className="relative overflow-hidden pt-10 pb-16" // extra bottom padding
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Header (keep the design + “Partner with us”) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-6">
+        <p className="inline-flex items-center gap-2 rounded-full border bg-background px-4 py-1 text-xs font-medium tracking-wide text-muted-foreground">
+          <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          Partner with us
+        </p>
+        <h3 className="mt-3 text-3xl md:text-4xl font-bold">
+          Our <span className="text-primary">Global Partners</span>
+        </h3>
+        <p className="mt-2 text-sm md:text-base text-muted-foreground">
+          Collaborating with industry leaders to deliver exceptional chemical solutions
+        </p>
+      </div>
 
-        {/* Partners Carousel */}
-        <div className="relative overflow-hidden">
-          <div 
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * (100 / 4)}%)` }}
-          >
-            {[...partners, ...partners].map((partner, index) => (
-              <div
-                key={`${partner.name}-${index}`}
-                className="w-1/4 flex-shrink-0 px-4"
+      {/* Full-bleed marquee (edge-to-edge) */}
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+        <motion.div
+          className="flex items-center gap-14 md:gap-20 px-4 sm:px-6 will-change-transform"
+          animate={paused || reduceMotion ? { x: "0%" } : { x: ["0%", "-50%"] }}
+          transition={
+            paused || reduceMotion
+              ? { duration: 0 }
+              : { duration, ease: "linear", repeat: Infinity }
+          }
+          style={{ width: "max-content" }}
+        >
+          {/* Sequence A */}
+          <div ref={seqRef} className="flex items-center gap-14 md:gap-20">
+            {PARTNERS_DATA.map((p) => (
+              <a
+                key={`A-${p.name}`}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={p.name}
+                className="block shrink-0 opacity-90 hover:opacity-100 transition"
+                aria-label={`Visit ${p.name} website`}
               >
-                <div className="bg-card border rounded-lg p-8 hover-shadow hover-lift transition-all duration-300 h-32 flex items-center justify-center">
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="max-w-full max-h-16 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              </div>
+                <img
+                  src={p.logo}
+                  alt={`${p.name} logo`}
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform hover:scale-105" // bigger logos
+                  loading="lazy"
+                />
+              </a>
             ))}
           </div>
-        </div>
 
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">50+</div>
-            <div className="text-muted-foreground">Global Partners</div>
+          {/* Sequence B (clone) */}
+          <div className="flex items-center gap-14 md:gap-20" aria-hidden="true">
+            {PARTNERS_DATA.map((p) => (
+              <a
+                key={`B-${p.name}`}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={p.name}
+                className="block shrink-0 opacity-90 hover:opacity-100 transition"
+              >
+                <img
+                  src={p.logo}
+                  alt=""
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform hover:scale-105"
+                  loading="lazy"
+                />
+              </a>
+            ))}
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-accent mb-2">25+</div>
-            <div className="text-muted-foreground">Countries</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">15+</div>
-            <div className="text-muted-foreground">Years Experience</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-accent mb-2">99%</div>
-            <div className="text-muted-foreground">Quality Assurance</div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default Partnerships;
+}

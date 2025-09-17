@@ -80,7 +80,6 @@ export interface Product {
       specifications: ["Purity: 85-90%", "Color: Clear", "Density: 1.20 g/cm³"],
       applications: ["Pickle preparation", "pH adjustment", "Deliming", "Neutralization"]
     },
-  
     // Laundry & Textile
     {
       id: "7",

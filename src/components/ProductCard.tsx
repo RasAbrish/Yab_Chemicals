@@ -18,44 +18,40 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <Card className="group h-full bg-gradient-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-1 flex flex-col">
-      <CardHeader className="p-4">
-        <div className="aspect-video w-full overflow-hidden rounded-md bg-muted/50 flex items-center justify-center">
-          {imageError ? (
-            <Package className="h-16 w-16 text-muted-foreground" />
-          ) : (
-            <img
-              src={product.image}
-              alt={product.name}
-              className="h-full w-full object-cover transition-transform group-hover:scale-105"
-              onError={handleImageError}
-            />
-          )}
-        </div>
-      </CardHeader>
-      
-      <CardContent className="p-4 pt-0 flex flex-col flex-1">
+    <Card className="group h-full bg-gradient-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-1 flex flex-col overflow-hidden">
+      <div className="aspect-video w-full overflow-hidden bg-muted/50 flex items-center justify-center">
+        {imageError ? (
+          <Package className="h-16 w-16 text-muted-foreground" />
+        ) : (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+            onError={handleImageError}
+          />
+        )}
+      </div>
+      <div className="p-4 flex flex-col flex-1">
         <div className="flex-1">
-          <Badge variant="secondary" className="mb-2 text-xs">
+        <Badge variant="outline" className="mb-2 text-xs">
             {product.category}
           </Badge>
-          
           <CardTitle className="text-lg mb-3 line-clamp-2 group-hover:text-primary transition-smooth">
             {product.name}
           </CardTitle>
           
-          <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
+          <p className="text-muted-foreground text-sm line-clamp-3">
             {product.description}
           </p>
         </div>
 
-        {/* Button container with fixed position at bottom */}
+        {/* Actions section */}
         <div className="mt-auto pt-4">
           <Dialog>
             <DialogTrigger asChild>
               <Button variant="default" className="w-full group/btn shadow-card hover:shadow-glow">
                 <Eye className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                View Details
+                View Detail
               </Button>
             </DialogTrigger>
             
@@ -123,7 +119,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </DialogContent>
           </Dialog>
         </div>
-      </CardContent>
+      </div>
     </Card>
   );
 };
