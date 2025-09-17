@@ -4,10 +4,7 @@ import { motion } from "framer-motion";
 import image1 from "@/assets/hero1.jpg";
 import image2 from "@/assets/hero2.jpg";
 const Hero = () => {
-  const images = [
-    `${image1}`,
-    `${image2}`
-  ];
+  const images = [`${image1}`, `${image2}`];
   const [currentImage, setCurrentImage] = useState(0);
   const [yearsCount, setYearsCount] = useState(0);
   const [clientsCount, setClientsCount] = useState(0);
@@ -121,6 +118,9 @@ const Hero = () => {
               Years Of Experience
             </p>
           </div>
+          <div className="text-center md:text-left">
+            <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400">
+              5000+
             </div>
             <p className="text-gray-300 text-sm sm:text-base">
               Satisfied Clients
@@ -128,7 +128,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </motion.div>
-
     </section>
   );
 };
