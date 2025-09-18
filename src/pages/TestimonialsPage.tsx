@@ -25,7 +25,7 @@ const TestimonialsPage = () => {
           className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Client <span className="text-primary">Testimonials</span> &{" "}
+          Testimonials &{" "}
             <span className="text-accent">Partnerships</span>
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">

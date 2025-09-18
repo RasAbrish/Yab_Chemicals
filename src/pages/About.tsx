@@ -93,7 +93,7 @@ const About = () => {
           className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About <span className="text-primary">US</span>
+            About <span className="text-accent">US</span>
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Your trusted partner in chemical supply, connecting global
@@ -243,19 +243,14 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                {/* Image */}
                 <img
                   src={img}
                   alt={title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-
-                {/* Overlay title */}
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
                   <h3 className="text-xl font-semibold text-white">{title}</h3>
                 </div>
-
-                {/* Sliding text */}
                 <div className="absolute bottom-0 left-0 w-full bg-white p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     {title}
@@ -267,8 +262,6 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Timeline */}
       <section className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -279,7 +272,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Our <span className="text-primary">Journey</span> Through Time
+              Our <span className="text-primary">Journey</span>
             </motion.h2>
             <motion.p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -292,10 +285,7 @@ const About = () => {
               founding to becoming a market leader
             </motion.p>
           </div>
-
-          {/* Modern Timeline */}
           <div className="relative">
-            {/* Timeline line - centered with proper z-index */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary to-accent z-0 hidden md:block"></div>
 
             {/* Mobile timeline line */}
