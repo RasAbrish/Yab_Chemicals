@@ -3,17 +3,20 @@ import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import ProductFilters from "@/components/ProductFilter";
 import Pagination from "@/components/Pagination";
-import heroImage from "@/assets/hero-chemistry.jpg";
 import Navigation from "@/components/Navigation";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Grid, List } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const ProductCatalog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
+  const [viewMode, setViewMode] = useState("grid");
 
-  // Filter products based on search and category
+  // 1️⃣ Filter products by search & category
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesSearch =
@@ -28,21 +31,33 @@ const ProductCatalog = () => {
     });
   }, [searchQuery, selectedCategory]);
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  // 2️⃣ Filter again by view mode (grid → with images, list → without images)
+  const viewFilteredProducts = useMemo(() => {
+    return filteredProducts.filter((product) => {
+      if (viewMode === "grid") {
+        return product.image && product.image.trim() !== "";
+      } else if (viewMode === "list") {
+        return !product.image || product.image.trim() === "";
+      }
+      return true;
+    });
+  }, [filteredProducts, viewMode]);
+
+  // 3️⃣ Pagination
+  const totalPages = Math.ceil(viewFilteredProducts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedProducts = filteredProducts.slice(
+  const paginatedProducts = viewFilteredProducts.slice(
     startIndex,
     startIndex + itemsPerPage
   );
 
-  // Reset to first page when filters change
-  const handleSearchChange = (query: string) => {
+  // Handlers
+  const handleSearchChange = (query) => {
     setSearchQuery(query);
     setCurrentPage(1);
   };
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setCurrentPage(1);
   };
@@ -53,7 +68,7 @@ const ProductCatalog = () => {
     setCurrentPage(1);
   };
 
-  const handleItemsPerPageChange = (newItemsPerPage: number) => {
+  const handleItemsPerPageChange = (newItemsPerPage) => {
     setItemsPerPage(newItemsPerPage);
     setCurrentPage(1);
   };
@@ -62,7 +77,7 @@ const ProductCatalog = () => {
     <div className="min-h-screen bg-gradient-subtle">
       <Navigation />
 
-      {/* Header */}
+      {/* Hero */}
       <section className="relative py-24">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -79,7 +94,7 @@ const ProductCatalog = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Our <span className="text-primary">Products</span>
+            Our <span className="text-accent">Products</span>
           </motion.h1>
           <motion.p
             className="text-xl text-gray-200 max-w-3xl mx-auto"
@@ -108,36 +123,86 @@ const ProductCatalog = () => {
             </div>
           </div>
 
-          {/* Products Grid */}
           <div className="lg:col-span-3">
-            {/* Results Header */}
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-foreground mb-2">
-                {selectedCategory === "All Categories"
-                  ? "All Products"
-                  : selectedCategory}
-              </h2>
-              <p className="text-muted-foreground">
-                {filteredProducts.length} product
-                {filteredProducts.length !== 1 ? "s" : ""} found
-                {searchQuery && ` for "${searchQuery}"`}
-              </p>
+            <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-bold text-foreground mb-1">
+                  {selectedCategory === "All Categories"
+                    ? "All Products"
+                    : selectedCategory}
+                </h2>
+                <p className="text-muted-foreground">
+                  {viewFilteredProducts.length} product
+                  {viewFilteredProducts.length !== 1 ? "s" : ""} found
+                  {searchQuery && ` for "${searchQuery}"`}
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant={viewMode === "grid" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setViewMode("grid")}
+                >
+                  <Grid className="h-4 w-4 mr-1" /> Grid
+                </Button>
+                <Button
+                  variant={viewMode === "list" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setViewMode("list")}
+                >
+                  <List className="h-4 w-4 mr-1" /> List
+                </Button>
+              </div>
             </div>
 
-            {/* Products Grid */}
             {paginatedProducts.length > 0 ? (
               <>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                  {paginatedProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                  ))}
-                </div>
+                {viewMode === "grid" && (
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    {paginatedProducts.map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+                )}
 
-                {/* Pagination */}
+                {viewMode === "list" && (
+                  <div className="divide-y divide-border rounded-lg border border-border/50 bg-white shadow mb-8">
+                    {paginatedProducts.map((product) => (
+                      <div
+                        key={product.id}
+                        className="flex items-start gap-4 p-4 hover:bg-muted/50 transition"
+                      >
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-lg">
+                            {product.name}
+                          </h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {product.description}
+                          </p>
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            <Badge variant="outline" className="text-xs">
+                              {product.category}
+                            </Badge>
+                            {product.applications?.slice(0, 3).map((app, index) => (
+                              <Badge
+                                key={index}
+                                variant="secondary"
+                                className="text-xs"
+                              >
+                                {app}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}
-                  totalItems={filteredProducts.length}
+                  totalItems={viewFilteredProducts.length}
                   itemsPerPage={itemsPerPage}
                   onPageChange={setCurrentPage}
                   onItemsPerPageChange={handleItemsPerPageChange}

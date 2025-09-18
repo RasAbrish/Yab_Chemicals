@@ -98,11 +98,6 @@ const ChemicalServices = () => {
           empower industries, laboratories, and businesses with safe and
           high-quality products.
         </p>
-  
-        <button className="mt-6 px-5 sm:px-6 py-2.5 sm:py-3 bg-red-600 hover:bg-red-700 transition rounded-xl shadow-lg">
-          Contact Us
-        </button>
-  
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10 sm:mt-12"
           variants={{
@@ -243,7 +238,7 @@ const Services: React.FC = () => {
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our <span className="text-accent">Our Services</span>
+            Our <span className="text-accent">Services</span>
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Comprehensive chemical supply solutions designed to meet the diverse
@@ -355,7 +350,7 @@ const Services: React.FC = () => {
           <Button
             variant="outline"
             size="lg"
-            className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 text-white border-0 rounded-full 
+            className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 text-white border-0 rounded-lg 
         hover:from-red-700 hover:via-red-600 hover:to-red-500 hover:shadow-lg hover:text-white 
         transition-all duration-300 transform hover:-translate-y-1"
             onClick={() => navigate("/contact")}

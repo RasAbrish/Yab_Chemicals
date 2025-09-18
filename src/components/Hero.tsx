@@ -1,14 +1,16 @@
 // Hero.tsx
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import image1 from "@/assets/hero1.jpg";
+import image1 from "@/assets/hero3.jpg";
 import image2 from "@/assets/hero2.jpg";
+import image3 from "@/assets/hero4.jpg";
+import {useNavigate } from "react-router-dom";
 const Hero = () => {
-  const images = [`${image1}`, `${image2}`];
+  const images = [`${image1}`, `${image2}`, `${image3}`];
   const [currentImage, setCurrentImage] = useState(0);
   const [yearsCount, setYearsCount] = useState(0);
   const [clientsCount, setClientsCount] = useState(0);
-
+  const navigate = useNavigate();
   // Background slider
   useEffect(() => {
     const interval = setInterval(
@@ -18,8 +20,6 @@ const Hero = () => {
     );
     return () => clearInterval(interval);
   }, []);
-
-  // Counter animation
   useEffect(() => {
     let years = 0;
     let clients = 0;
@@ -100,11 +100,11 @@ const Hero = () => {
           variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
           className="flex flex-col sm:flex-row gap-4 sm:justify-center md:justify-start"
         >
-          <button className="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-primary/80 rounded-lg font-semibold shadow-md transition">
+          <button onClick={() => navigate("/contact")} className="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-primary/80 rounded-lg font-semibold shadow-md transition">
             Get Started
           </button>
-          <button className="w-full sm:w-auto px-6 py-3 border border-white hover:bg-white/10 rounded-lg font-semibold transition">
-            Explore Our Service
+          <button onClick={() => navigate("/products")} className="w-full sm:w-auto px-6 py-3 border border-white hover:bg-white hover:text-primary rounded-lg font-semibold transition">
+            Explore Our Product
           </button>
         </motion.div>
 
@@ -120,7 +120,7 @@ const Hero = () => {
           </div>
           <div className="text-center md:text-left">
             <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400">
-              5000+
+             {clientsCount}+
             </div>
             <p className="text-gray-300 text-sm sm:text-base">
               Satisfied Clients

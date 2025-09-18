@@ -82,19 +82,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-background/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-background/60 text-sm">
-            © 2024 YAB Chemicals. All rights reserved.
+            © 2025 YAB Chemicals. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-background/60 hover:text-primary text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-background/60 hover:text-primary text-sm transition-colors">
-              Terms of Service
-            </Link>
-            <Link to="/safety" className="text-background/60 hover:text-primary text-sm transition-colors">
-              Safety Guidelines
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

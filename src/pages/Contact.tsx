@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Image from "@/assets/contact.jpg"
 import {
   Card,
   CardContent,
@@ -124,7 +125,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Contact <span className="text-primary">us</span>
+            Contact <span className="text-accent">Us</span>
           </motion.h1>
         </div>
       </section>
@@ -198,9 +199,10 @@ const Contact = () => {
                   <div className="relative h-full min-h-[480px] w-full">
                     <img
                       alt="Modern lab"
-                      src="https://wallpapers.com/images/hd/lab-background-2716-x-1811-iy0zqdpg56r4bv9p.jpg"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      src={Image}
+                      className="absolute inset-0  h-full w-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-black/50"></div>
                     <div className="absolute inset-0 bg-gradient-to-tr from-background/20 via-background/0 to-background/10" />
                     <motion.div
                       initial={{ opacity: 0, y: 14 }}
