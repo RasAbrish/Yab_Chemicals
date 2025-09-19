@@ -1,41 +1,44 @@
 import { motion } from "framer-motion";
 import { LinkedinIcon, Mail } from "lucide-react";
-
+import Image1 from "@/assets/team1.jpg"
+import Image2 from "@/assets/team2.jpg"
+import Image3 from "@/assets/team3.jpg"
+import Image4 from "@/assets/team4.jpg"
 const TeamSection = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Yared Abebe",
+      name: "Ababi Yirega",
       role: "CEO & Founder",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face",
+       `${Image4}`,
       linkedin: "#",
       email: "yared@yabchemicals.com",
     },
     {
       id: 2,
-      name: "Bethlehem Tadesse",
-      role: "Chief Operations Officer",
+      name: "Alemthehay Tadele ",
+      role: "HR and Finace",
       image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b55c?w=500&h=500&fit=crop&crop=face",
+     `${Image3}`,
       linkedin: "#",
       email: "bethlehem@yabchemicals.com",
     },
     {
       id: 3,
-      name: "Daniel Hailu",
-      role: "Head of Quality Assurance",
+      name: "Dr.Husein Geto",
+      role: "Marketing Manger",
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=500&fit=crop&crop=face",
+      `${Image2}`,
       linkedin: "#",
       email: "daniel@yabchemicals.com",
     },
     {
       id: 4,
-      name: "Hanan Mohammed",
-      role: "Director of Business Development",
+      name: "Teklie Tadele",
+      role: "Marketing Manager",
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&fit=crop&crop=face",
+      `${Image1}`,
       linkedin: "#",
       email: "hanan@yabchemicals.com",
     },

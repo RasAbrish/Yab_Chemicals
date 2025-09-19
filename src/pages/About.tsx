@@ -20,38 +20,41 @@ import { motion } from "framer-motion";
 const About = () => {
   const milestones = [
     {
-      year: "2008",
-      event: "YAB Chemicals founded",
-      description:
-        "Started with a vision to bridge international chemical markets with Ethiopian industries",
+      year: "2013",
+      event: "Company Founded",
+      description: "Started operations on April 1, 2013",
     },
     {
-      year: "2012",
-      event: "First international partnerships",
-      description:
-        "Established relationships with chemical suppliers in Asia and Europe",
-    },
-    {
-      year: "2015",
-      event: "ISO certification achieved",
-      description:
-        "Received ISO 9001:2015 certification for quality management",
+      year: "2013",
+      event: "Growing Popularity",
+      description: "Became recognized and started gaining fame in September 2013",
     },
     {
       year: "2018",
-      event: "Expansion across Ethiopia",
-      description: "Opened distribution centers in major Ethiopian cities",
+      event: "Expansion",
+      description: "Major growth with network expansion in different aspects",
     },
     {
-      year: "2020",
-      event: "Digital transformation",
-      description: "Launched online platform for streamlined chemical sourcing",
+      year: "2022",
+      event: "Global Partnership",
+      description: "Established global partnerships to strengthen market presence",
+    },
+    {
+      year: "2023",
+      event: "Exclusive Products",
+      description: "Began offering exclusivity for most products",
+    },
+    {
+      year: "2023",
+      event: "Rebirth & Rebranding",
+      description: "The company was revitalized and rebranded",
     },
     {
       year: "2024",
-      event: "Leading market position",
-      description: "Became one of Ethiopia's top chemical suppliers",
+      event: "Market Leadership",
+      description: "Now one of the most popular chemical product suppliers in Ethiopia",
     },
+    
   ];
 
   const certifications = [

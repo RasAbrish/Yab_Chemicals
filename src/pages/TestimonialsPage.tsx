@@ -49,7 +49,7 @@ const TestimonialsPage = () => {
           >
             {[
               { value: "50+", label: "Global Partners" },
-              { value: "25+", label: "Countries" },
+              { value: "8+", label: "Countries" },
               { value: "12+", label: "Years Experience" },
               { value: "99%", label: "Quality Score" },
             ].map((stat, index) => (

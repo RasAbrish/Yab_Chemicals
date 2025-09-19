@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Globe, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Mail, Phone, MapPin, Globe, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const Footer = () => {
+  const naviation = useNavigate();
   return (
     <footer className="bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -20,15 +20,9 @@ const Footer = () => {
               quality products, safety, and innovation.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="text-background/80 hover:text-primary hover:bg-background/10">
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-background/80 hover:text-primary hover:bg-background/10">
-                <Twitter className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-background/80 hover:text-primary hover:bg-background/10">
-                <Linkedin className="h-5 w-5" />
-              </Button>
+              <Link to='https://t.me/yabchemical'  className="text-background/80 hover:text-primary">
+                <Send className="h-5 w-5" />
+              </Link>
             </div>
           </div>
 
@@ -65,11 +59,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary" />
-                <span className="text-background/80 text-sm">+251-11-xxx-xxxx</span>
+                <span className="text-background/80 text-sm">+251-911949466</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-background/80 text-sm">info@yabchemicals.com</span>
+                <span className="text-background/80 text-sm">yabchemicals@gmail.com</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Globe className="h-4 w-4 text-primary" />
