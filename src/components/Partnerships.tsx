@@ -6,12 +6,12 @@ import { motion, useReducedMotion } from "framer-motion";
 type Partner = { name: string; logo: string; url: string };
 
 const PARTNERS_DATA: Partner[] = [
-  { name: "BASF", logo: "https://www.vectorlogo.zone/logos/basf/basf-ar21.svg", url: "https://www.basf.com/global/en.html" },
-  { name: "Dow Chemical", logo: "https://www.vectorlogo.zone/logos/dow/dow-ar21.svg", url: "https://www.dow.com/" },
-  { name: "DuPont", logo: "https://www.vectorlogo.zone/logos/dupont/dupont-ar21.svg", url: "https://www.dupont.com/" },
-  { name: "3M", logo: "https://www.vectorlogo.zone/logos/3m/3m-ar21.svg", url: "https://www.3m.com/" },
-  { name: "Bayer", logo: "https://www.vectorlogo.zone/logos/bayer/bayer-ar21.svg", url: "https://www.bayer.com/" },
-  { name: "Merck", logo: "https://www.vectorlogo.zone/logos/merckgroup/merckgroup-ar21.svg", url: "https://www.merckgroup.com/en" },
+  { name: "ISSHO", logo: "https://www.vectorlogo.zone/logos/basf/basf-ar21.svg", url: "https://www.basf.com/global/en.html" },
+  { name: "TAKASAGO", logo: "https://assets.takasago.com/prod/default/s3fs-public/2022-05/ogp_image.png?VersionId=4Okq.hyNy05oncu5M7CgjrErodnd5uxW", url: "https://www.dow.com/" },
+  { name: "UNISYNTH", logo: "https://unisynthoverseas.com/wp-content/uploads/2024/10/Untitled-1.png", url: "https://www.dupont.com/" },
+  { name: "Etap", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR32NJ1MuZjeLUhE56vX9pB1pWLPrXMtISshQ&s", url: "https://www.3m.com/" },
+  { name: "TTK-PLC", logo: "https://addisjobs.net/wp-content/uploads/2021/03/TTK-PLC-logo-Addis-Jobs-200x91.jpg", url: "https://www.bayer.com/" },
+  { name: "Bekas", logo: "https://bekaschemicals.com/images/bekas-logo.jpg", url: "https://www.merckgroup.com/en" },
   { name: "Solvay", logo: "https://www.vectorlogo.zone/logos/solvay/solvay-ar21.svg", url: "https://www.solvay.com/en" },
   { name: "AkzoNobel", logo: "https://www.vectorlogo.zone/logos/akzonobel/akzonobel-ar21.svg", url: "https://www.akzonobel.com/" },
   { name: "SABIC", logo: "https://www.vectorlogo.zone/logos/sabic/sabic-ar21.svg", url: "https://www.sabic.com/en" },
