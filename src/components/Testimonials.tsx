@@ -17,26 +17,23 @@ type Testimonial = {
 const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 1,
-    name: "Ahmed Hassan",
-    company: "Ethiopian Textile Industries",
-    role: "Production Manager",
+    name: "Gezu Ayele",
+    company: "Longtime Client of the Company",
+    role: "",
     content:
-      "YAB Chemicals has been our trusted partner for over 5 years. Their quality assurance and timely delivery have never disappointed us. The team's expertise in chemical solutions has helped us optimize our production processes significantly.",
+      "YAB Chemicals has established itself as one of the leading and most trusted chemical suppliers in Ethiopia. With strong and enduring partnerships with reputable international companies, YAB Chemicals consistently delivers high-quality products at competitive prices. Clients value the company’s professionalism, reliability and commitment to excellence. Moreover, its continuous diversification of chemical supplies ensures that customers have access to a wide range of solutions tailored to their needs. Working with YAB Chemicals is a true advantage for any organization seeking quality, affordability and dependable business partner.",
     rating: 0,
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&fit=crop&crop=face",
+    image: "/src/assets/pic1.jpg",
   },
-  {
-    id: 2,
-    name: "Sarah Alemayehu",
-    company: "Addis Manufacturing Co.",
-    role: "Quality Control Lead",
-    content:
-      "The safety standards and international certifications from YAB Chemicals give us complete confidence in our production processes. Their technical support team is always available to address any concerns we might have.",
-    rating: 0,
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b55c?w=160&h=160&fit=crop&crop=face",
-  },
+ {
+id: 2,
+name: "Osman Ahmed Zelekew (PhD)",
+company: "Associate Professor",
+role: "Expert in Chemicals, Materials Science and Engineering",
+content: "I am honored to provide this testimony in strong support of Yab Chemicals PLC. The company has built an exemplary record as an importer of high-quality construction materials and industrial chemicals, significantly benefiting the local community through its efficient operations and commitment to quality. The company has now expanded its expertise into construction, and I have had the opportunity to witness their exceptional capabilities for any project completion. Their process, from initial concept to final execution, is marked by professionalism, exceptional leadership, and a dedication to quality that exceeds. Without any reservation, I affirm Yab Chemicals capability to successfully undertake and complete projects to the highest standards.",
+rating: 0,
+image: "/src/assets/pic2.jpg"
+},
   {
     id: 3,
     name: "Michael Tadesse",
@@ -48,17 +45,7 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=160&h=160&fit=crop&crop=face",
   },
-  {
-    id: 4,
-    name: "Tigist Bekele",
-    company: "East African Breweries",
-    role: "Supply Chain Director",
-    content:
-      "YAB Chemicals' technical support and responsive customer service have significantly improved our operational efficiency. Their just-in-time delivery system has reduced our inventory costs by over 20% while maintaining production continuity.",
-    rating: 0,
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&h=160&fit=crop&crop=face",
-  },
+  
 ];
 
 export default function Testimonials() {
@@ -121,14 +108,32 @@ export default function Testimonials() {
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -top-40 -left-24 h-[32rem] w-[32rem] rounded-full -z-10 blur-3xl bg-[radial-gradient(closest-side,theme(colors.blue.400/30),transparent)]"
-        animate={{ x: [0, 24, -16, 0], y: [0, -18, 8, 0], opacity: [0.5, 0.65, 0.55, 0.5] }}
-        transition={{ duration: 16, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+        animate={{
+          x: [0, 24, -16, 0],
+          y: [0, -18, 8, 0],
+          opacity: [0.5, 0.65, 0.55, 0.5],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          repeatType: "mirror",
+          ease: "easeInOut",
+        }}
       />
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -bottom-28 -right-24 h-[36rem] w-[36rem] rounded-full -z-10 blur-3xl bg-[radial-gradient(closest-side,theme(colors.red.500/25),transparent)]"
-        animate={{ x: [0, -18, 12, 0], y: [0, 16, -10, 0], opacity: [0.45, 0.6, 0.5, 0.45] }}
-        transition={{ duration: 18, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+        animate={{
+          x: [0, -18, 12, 0],
+          y: [0, 16, -10, 0],
+          opacity: [0.45, 0.6, 0.5, 0.45],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          repeatType: "mirror",
+          ease: "easeInOut",
+        }}
       />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative">
@@ -158,7 +163,8 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.05 }}
           >
-            Trusted by leading industries for quality, reliability, and innovation
+            Trusted by leading industries for quality, reliability, and
+            innovation
           </motion.p>
         </div>
 
@@ -203,8 +209,13 @@ export default function Testimonials() {
                       {/* Top: stars + quote (no clamp; compact sizes) */}
                       <div className="col-span-12">
                         <div className="flex items-center justify-center gap-1.5 mb-3">
-                          {Array.from({ length: TESTIMONIALS_DATA[index].rating }).map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-red-500 fill-current" />
+                          {Array.from({
+                            length: TESTIMONIALS_DATA[index].rating,
+                          }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className="h-5 w-5 text-red-500 fill-current"
+                            />
                           ))}
                         </div>
 
