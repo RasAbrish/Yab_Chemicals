@@ -1,4 +1,15 @@
-
+import Image1 from "@/assets/Monstral Blue Paste.jpg"
+import Image2 from "@/assets/food fla.jpg"
+import Image3 from "@/assets/Lavarage.jpg"
+import Image4 from "@/assets/Fragrances.jpg"
+import Image5 from "@/assets/Green Apple.jpg"
+import Image6 from "@/assets/Lemon Yellow.jpg"
+import Image7 from "@/assets/Tartrazine.jpg"
+import Image8 from "@/assets/Sunset Yellow.jpg"
+import Image9 from "@/assets/Food Color.jpg"
+import Image10 from "@/assets/Monstral Blue Paste.jpg"
+import Image11 from "@/assets/food fla.jpg"
+import Image12 from "@/assets/Fragrances.jpg"
 export interface Product {
   id: string;
   name: string;
@@ -1295,7 +1306,7 @@ export const products: Product[] = [
     name: "Monstral Blue Paste",
     description: "Phthalocyanine-based blue pigment paste for high-performance coloring in various applications.",
     category: "Monstral Blue Paste",
-    image: "/src/assets/Monstral Blue Paste.jpg",
+    image: `${Image1}`,
   },
   // ===============================
   // Food Flavours
@@ -1305,21 +1316,21 @@ export const products: Product[] = [
     name: "Vanilla",
     description: "Natural or synthetic vanilla flavoring for baked goods, beverages, and dairy products.",
     category: "Food Flavours",
-    image: "/src/assets/food fla.jpg",
+    image: `${Image2}`,
   },
   {
     id: "ff-002",
     name: "Mint",
     description: "Cooling mint flavor for confectionery, beverages, and oral care products.",
     category: "Food Flavours",
-    image: "/src/assets/food fla.jpg",
+    image: `${Image2}`,
   },
   {
     id: "ff-003",
     name: "Coffee",
     description: "Robust coffee flavor for drinks, desserts, and baked items.",
     category: "Food Flavours",
-    image: "/src/assets/food fla.jpg",
+    image: `${Image2}`,
   },
   { id: "ff-004", name: "Orange", description: "Citrus orange flavor for beverages and candies.", category: "Food Flavours", image: "" },
   { id: "ff-005", name: "Banana", description: "Sweet banana flavor for desserts and drinks.", category: "Food Flavours", image: "" },
@@ -1336,21 +1347,21 @@ export const products: Product[] = [
     name: "Lavander",
     description: "Soothing lavender fragrance for soaps, detergents, and cosmetics.",
     category: "Fragrances",
-    image: "/src/assets/lavarage.jpg",
+    image: `${Image3}`,
   },
   {
     id: "frg-002",
     name: "Zaffran",
     description: "Exotic saffron (zaffran) fragrance for premium products.",
     category: "Fragrances",
-    image: "/src/assets/Fragrances.jpg",
+    image: `${Image4}`,
   },
   {
     id: "frg-003",
     name: "Green Apple",
     description: "Fresh green apple scent for cleaners and personal care.",
     category: "Fragrances",
-    image: "/src/assets/Green Apple.jpg",
+    image: `${Image5}`,
   },
   { id: "frg-004", name: "Sunset Aerial", description: "Unique sunset-inspired fragrance for ambient products.", category: "Fragrances", image: "" },
   { id: "frg-005", name: "Pomegranate Juice", description: "Fruity pomegranate fragrance for soaps and detergents.", category: "Fragrances", image: "" },
@@ -1366,21 +1377,21 @@ export const products: Product[] = [
     name: "Lemon Yellow",
     description: "Bright yellow colorant used in food products and detergents for vibrant coloring.",
     category: "Food and Detergent Colours",
-    image: "/src/assets/Lemon yellow.jpg",
+    image: `${Image6}`,
   },
   {
     id: "fdc-002",
     name: "Tartrazine",
     description: "Synthetic lemon yellow azo dye commonly used in foods, beverages, and detergents.",
     category: "Food and Detergent Colours",
-    image: "/src/assets/Tartrazine.jpg",
+    image: `${Image7}`,
   },
   {
     id: "fdc-003",
     name: "Sunset Yellow",
     description: "Orange-yellow dye for coloring foods, cosmetics, and cleaning products.",
     category: "Food and Detergent Colours",
-    image: "/src/assets/Sunset Yellow.jpg",
+    image: `${Image8}`,
   },
   { id: "fdc-004", name: "Apple Green", description: "Green colorant for food and detergent applications.", category: "Food and Detergent Colours", image: "" },
   { id: "fdc-005", name: "Alura Red", description: "Bright red dye for foods and detergents.", category: "Food and Detergent Colours", image: "" },
@@ -1400,7 +1411,7 @@ export const products: Product[] = [
       "Available in: Lemon yellow, Tartrazine, Sunset yellow, Apple green, Alura red, Tomato red, Dark brawn chocolate, Rose pink, Brilliant blue, Egg yellow, Ponceau",
     category: "Exsclusive Products",
     image:
-      "/src/assets/Food Color.jpg",
+      `${Image9}`,
   },
   {
     id: "exp-002",
@@ -1409,7 +1420,7 @@ export const products: Product[] = [
       "Special high-quality blue pigment paste for coloring applications in food, detergents, and more.",
     category: "Exsclusive Products",
     image:
-      "/src/assets/Monstral Blue Paste.jpg",
+     `${Image10}`,
   },
   {
     id: "exp-003",
@@ -1417,7 +1428,7 @@ export const products: Product[] = [
     description:
       "Available in: Vanilla, Mint, Coffee, Orange, Banana, Apple, Ouzo, Caramel, Chocolate, Cappuccino",
     category: "Exsclusive Products",
-    image: "/src/assets/food fla.jpg",
+    image: `${Image11}`,
   },
   {
     id: "exp-004",
@@ -1425,7 +1436,7 @@ export const products: Product[] = [
     description:
       "Available in: Lavander, Zaffran, Green Apple, Sunset aerial, Pomegranate juice, Floral Blast, Zesty lemon grass, Dettoline, Lemon breez",
     category: "Exsclusive Products",
-    image: "/src/assets/Fragrances.jpg", // Added image for grid display
+    image: `${Image12}`, 
   },
   // Sub-lists as individual products with empty images for list display
   {
