@@ -7,15 +7,15 @@ type Partner = { name: string; logo: string; url: string };
 
 const PARTNERS_DATA: Partner[] = [
   { name: "TAKASAGO", logo: "https://assets.takasago.com/prod/default/s3fs-public/2022-05/ogp_image.png?VersionId=4Okq.hyNy05oncu5M7CgjrErodnd5uxW", url: "https://www.dow.com/" },
-  { name: "Unisynth chemicals  India", logo: "/src/assets/Unisynth chemicals  India.jpg", url: "https://www.unisynth.com/" },
+  { name: "Unisynth chemicals  India", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW_0-DWUEHlZCcDAxOF5cjDz5zTBfzIbpVdw&s", url: "https://www.unisynth.com/" },
   { name: "Etap", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR32NJ1MuZjeLUhE56vX9pB1pWLPrXMtISshQ&s", url: "https://www.3m.com/" },
   { name: "TTK-PLC", logo: "https://addisjobs.net/wp-content/uploads/2021/03/TTK-PLC-logo-Addis-Jobs-200x91.jpg", url: "https://www.bayer.com/" },
   { name: "Bekas", logo: "https://bekaschemicals.com/images/bekas-logo.jpg", url: "https://www.merckgroup.com/en" },
-  { name: "STAR SOAP & DETERGENT INDUSTRIES", logo: "/src/assets/Star soap and detergent.jpg", url: "https://www.2merkato.com/directory/3414-star-soap-detergent-industries" },
-  { name: "Toria Soap and Detergent Industries", logo: "/src/assets/Toria Soap and Detergent Industries.jpg", url: "https://www.2merkato.com/directory/21792-toria-soap-and-detergent-industries" },
-  { name: "ABEM INDUSTRY PLC", logo: "/src/assets/ABEM INDUSTRY PLC.jpg", url: "https://abemindustries.com/" },
+  { name: "STAR SOAP & DETERGENT INDUSTRIES", logo: "https://pub-f30882b481294faa997a4d11ff77ce65.r2.dev/company-logo/394608/star.png?w=384", url: "https://www.2merkato.com/directory/3414-star-soap-detergent-industries" },
+  { name: "Toria Soap and Detergent Industries", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-G2jzb3AFgTjXZONadVtXCU1rMBXzg7qGAw&s", url: "https://www.2merkato.com/directory/21792-toria-soap-and-detergent-industries" },
+  { name: "ABEM INDUSTRY PLC", logo: "https://www.ethiopianreporterjobs.com/wp-content/uploads/2018/12/f35f3529-a622-4f3f-83db-ff8492028f1a.jpg", url: "https://abemindustries.com/" },
   { name: "Ethio-Asian Industries S.C", logo: "https://imgs.search.brave.com/3KTu8UZlY0miXxl_g0g2qHzEDIfVkq0kF64Y_qrmvhc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Mm1lcmthdG8uY29t/L2ltYWdlcy9tdHJl/ZS9saXN0aW5ncy9t/LzM4NDQ1LmpwZw", url: "https://ethioasian.com/" },
-  { name: "unity soap and detergent manfacturing P.L.C", logo: "/src/assets/Unity Soap.jpg", url: "" },
+  { name: "unity soap and detergent manfacturing P.L.C", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtT-RU_8rpexP0UaFfSQkvCfRzhvah1HPu2YxqesFb0oTxRyV3ZrpU4KdwQfZTyQzvNmQ&usqp=CAU", url: "" },
 ];
 
 export default function PartnershipsMarquee() {

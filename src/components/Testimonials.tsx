@@ -3,7 +3,8 @@ import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import pic1 from "../assets/pic1.jpg"
+import pic2 from "../assets/pic2.jpg"
 type Testimonial = {
   id: number;
   name: string;
@@ -23,7 +24,7 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     content:
       "YAB Chemicals has established itself as one of the leading and most trusted chemical suppliers in Ethiopia. With strong and enduring partnerships with reputable international companies, YAB Chemicals consistently delivers high-quality products at competitive prices. Clients value the company’s professionalism, reliability and commitment to excellence. Moreover, its continuous diversification of chemical supplies ensures that customers have access to a wide range of solutions tailored to their needs. Working with YAB Chemicals is a true advantage for any organization seeking quality, affordability and dependable business partner.",
     rating: 0,
-    image: "/src/assets/pic1.jpg",
+    image: `${pic1}`,
   },
  {
 id: 2,
@@ -32,7 +33,7 @@ company: "Associate Professor",
 role: "Expert in Chemicals, Materials Science and Engineering",
 content: "I am honored to provide this testimony in strong support of Yab Chemicals PLC. The company has built an exemplary record as an importer of high-quality construction materials and industrial chemicals, significantly benefiting the local community through its efficient operations and commitment to quality. The company has now expanded its expertise into construction, and I have had the opportunity to witness their exceptional capabilities for any project completion. Their process, from initial concept to final execution, is marked by professionalism, exceptional leadership, and a dedication to quality that exceeds. Without any reservation, I affirm Yab Chemicals capability to successfully undertake and complete projects to the highest standards.",
 rating: 0,
-image: "/src/assets/pic2.jpg"
+image: `${pic2}`
 },
   
   
