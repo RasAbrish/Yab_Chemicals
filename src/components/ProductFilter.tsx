@@ -47,7 +47,7 @@ const ProductFilters = ({
         {/* Category Filter */}
         <div className="space-y-2">
           <label className="text-sm font-medium text-foreground">
-            Filter by Category
+            Filter by Categorys
           </label>
           <Select value={selectedCategory} onValueChange={onCategoryChange}>
             <SelectTrigger className="transition-smooth focus:shadow-elegant">
