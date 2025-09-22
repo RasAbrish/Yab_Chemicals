@@ -34,17 +34,7 @@ content: "I am honored to provide this testimony in strong support of Yab Chemic
 rating: 0,
 image: "/src/assets/pic2.jpg"
 },
-  {
-    id: 3,
-    name: "Michael Tadesse",
-    company: "Horizon Pharmaceuticals",
-    role: "Chief Operations Officer",
-    content:
-      "Their global sourcing network and local expertise make them the perfect chemical supplier for our pharmaceutical operations. We've seen a 15% improvement in efficiency since switching to YAB Chemicals as our primary supplier.",
-    rating: 0,
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=160&h=160&fit=crop&crop=face",
-  },
+  
   
 ];
 
