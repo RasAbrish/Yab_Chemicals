@@ -79,7 +79,7 @@ const ProductCatalog = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative py-24">
+      <section className="relative py-16 md:py-24">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -90,7 +90,7 @@ const ProductCatalog = () => {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -98,7 +98,7 @@ const ProductCatalog = () => {
             Our <span className="text-accent">Products</span>
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-200 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -110,10 +110,10 @@ const ProductCatalog = () => {
       </section>
 
       <div className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Filters Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24">
+            <div className="lg:sticky lg:top-24">
               <ProductFilters
                 searchQuery={searchQuery}
                 selectedCategory={selectedCategory}
@@ -124,15 +124,16 @@ const ProductCatalog = () => {
             </div>
           </div>
 
+          {/* Products Section */}
           <div className="lg:col-span-3">
-            <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <h2 className="text-2xl font-bold text-foreground mb-1">
                   {selectedCategory === "All Categories"
                     ? "All Products"
                     : selectedCategory}
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm sm:text-base">
                   {viewFilteredProducts.length} product
                   {viewFilteredProducts.length !== 1 ? "s" : ""} found
                   {searchQuery && ` for "${searchQuery}"`}
@@ -159,7 +160,7 @@ const ProductCatalog = () => {
             {paginatedProducts.length > 0 ? (
               <>
                 {viewMode === "grid" && (
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
                     {paginatedProducts.map((product) => (
                       <ProductCard key={product.id} product={product} />
                     ))}
@@ -171,7 +172,7 @@ const ProductCatalog = () => {
                     {paginatedProducts.map((product) => (
                       <div
                         key={product.id}
-                        className="flex items-start gap-4 p-4 hover:bg-muted/50 transition"
+                        className="flex flex-col sm:flex-row items-start gap-4 p-4 hover:bg-muted/50 transition"
                       >
                         <div className="flex-1">
                           <h3 className="font-semibold text-lg">

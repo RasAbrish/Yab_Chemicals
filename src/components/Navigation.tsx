@@ -4,7 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import logo from "/favicon.png"
+import logo from "/favicon.png";
+
 type NavItem = { name: string; path: string };
 
 const NAV_ITEMS: NavItem[] = [
@@ -16,14 +17,13 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 type NavigationProps = {
-  /** set to true if you ever want the bar to hide when scrolling down */
   hideOnScroll?: boolean;
 };
 
 const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showBar, setShowBar] = useState(true); // fixed by default (always true)
+  const [showBar, setShowBar] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
   const lastY = useRef(0);
   const location = useLocation();
@@ -113,20 +113,29 @@ const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
         style={{ width: `${scrollProgress * 100}%` }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className={cn("flex justify-between items-center", scrolled ? "h-16" : "h-20")}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div
+          className={cn(
+            "flex justify-between items-center",
+            scrolled ? "h-16" : "h-20"
+          )}
+        >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-20 h-20 rounded-lg flex items-center justify-center">
-              <img src={logo} alt="log" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 rounded-lg flex items-center justify-center">
+              <img
+                src={logo}
+                alt="logo"
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
-            <span className="text-xl font-bold text-white group-hover:opacity-90 transition-opacity">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:opacity-90 transition-opacity">
               YAB Chemicals
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <div className="relative hidden md:flex items-center gap-2">
+          <div className="relative hidden md:flex items-center gap-1 lg:gap-2">
             {NAV_ITEMS.map((item, i) => {
               const active = isActive(item.path);
               return (
@@ -134,41 +143,44 @@ const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
                   key={item.name}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * DELAY_STEP, duration: DURATION / 1.5 }}
+                  transition={{
+                    delay: i * DELAY_STEP,
+                    duration: DURATION / 1.5,
+                  }}
                   className="relative"
                 >
                   <Link
                     to={item.path}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      // extra bottom padding so underline sits nicely
                       "relative px-3 pb-[10px] pt-2 rounded-lg text-sm font-medium transition-all",
                       "hover:text-primary/90 text-white/90 hover:bg-white/5",
                       active && "text-white"
                     )}
                   >
-                    {/* soft active pill */}
                     {active && (
                       <motion.span
                         layoutId="activePill"
                         className="absolute inset-0 rounded-lg bg-white/10 ring-1 ring-white/10"
-                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 30,
+                        }}
                       />
                     )}
-
-                    {/* label */}
                     <span className="relative z-10">{item.name}</span>
-
-                    {/* light underline for ACTIVE item */}
                     {active && (
                       <motion.span
                         layoutId="activeUnderline"
                         className="pointer-events-none absolute left-2 right-2 -bottom-[3px] h-[2px] rounded-full bg-gradient-to-r from-white/0 via-white/70 to-white/0"
-                        transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 35,
+                        }}
                       />
                     )}
-
-                    {/* gentle hover underline (non-active) */}
                     {!active && (
                       <span className="pointer-events-none absolute left-3 right-3 -bottom-[4px] h-px rounded-full bg-white/10 opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:group-hover:opacity-100" />
                     )}
@@ -182,8 +194,7 @@ const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
           <div className="hidden md:block">
             <Link
               to="/contact"
-              className="relative inline-flex items-center rounded-md px-4 py-2 text-sm font-semibold text-white transition-all
-                         bg-primary hover:bg-primary/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/60"
+              className="relative inline-flex items-center rounded-md px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all bg-primary hover:bg-primary/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/60"
             >
               Contact Us
             </Link>
@@ -198,7 +209,7 @@ const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
               aria-controls="mobile-menu"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={26} /> : <Menu size={26} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -220,18 +231,24 @@ const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
               id="mobile-menu"
               role="dialog"
               aria-modal="true"
-              className="md:hidden fixed right-0 top-0 h-screen w-[82%] max-w-sm bg-neutral-950/95 backdrop-blur-xl border-l border-white/10 px-6 py-8 flex flex-col z-[121]"
+              className="md:hidden fixed right-0 top-0 h-screen w-[85%] max-w-xs sm:max-w-sm bg-neutral-950/95 backdrop-blur-xl border-l border-white/10 px-4 sm:px-6 py-6 sm:py-8 flex flex-col z-[121]"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 260, damping: 26 }}
             >
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-md bg-gradient-to-br from-primary to-blue-400 grid place-items-center">
-                    <span className="text-white text-xs font-bold">YAB</span>
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-md grid place-items-center">
+                    <img
+                      src={logo}
+                      alt="logo"
+                      className="max-w-full max-h-full object-contain"
+                    />
                   </div>
-                  <span className="text-white font-semibold">YAB Chemicals</span>
+                  <span className="text-white font-semibold text-base sm:text-lg">
+                    YAB Chemicals
+                  </span>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -253,7 +270,7 @@ const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
                       to={item.path}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "block w-full rounded-lg px-3 py-3 text-lg transition",
+                        "block w-full rounded-lg px-3 py-3 text-base sm:text-lg transition",
                         "text-white/90 hover:text-white hover:bg-white/5",
                         isActive(item.path) && "bg-white/10 text-white"
                       )}
@@ -268,12 +285,13 @@ const Navigation = ({ hideOnScroll = false }: NavigationProps) => {
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-white font-semibold hover:bg-primary/90 transition"
+                  className="inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-white font-semibold hover:bg-primary/90 transition text-base sm:text-lg"
                 >
                   Contact Us
                 </Link>
-                <p className="mt-3 text-xs text-white/60">
-                  © {new Date().getFullYear()} YAB Chemicals. All rights reserved.
+                <p className="mt-3 text-xs text-white/60 text-center">
+                  © {new Date().getFullYear()} YAB Chemicals. All rights
+                  reserved.
                 </p>
               </div>
             </motion.div>
