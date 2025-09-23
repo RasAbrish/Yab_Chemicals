@@ -5,6 +5,8 @@ import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import pic1 from "../assets/pic1.jpg"
 import pic2 from "../assets/pic2.jpg"
+import pic3 from "../assets/pic3.jpg"
+
 type Testimonial = {
   id: number;
   name: string;
@@ -35,6 +37,17 @@ content: "I am honored to provide this testimony in strong support of Yab Chemic
 rating: 0,
 image: `${pic2}`
 },
+
+ {
+id: 3,
+name: "Adefris Ayalew ",
+company: "Bilen PLC",
+role: "Bilen PLC Manager",
+content: "From the very beginning, YAB Chemicals impressed us with their professionalism and deep market knowledge. They understand the importance of timely delivery and uncompromised quality. Their strong international connections allow them to bring the best solutions to Ethiopia, making them a vital partner for businesses across industries." ,
+rating: 0,
+image: `${pic3}`
+},
+  
   
   
 ];

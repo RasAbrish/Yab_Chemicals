@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Grid, List } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Footer from "@/components/Footer";
 
 const ProductCatalog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -183,15 +184,17 @@ const ProductCatalog = () => {
                             <Badge variant="outline" className="text-xs">
                               {product.category}
                             </Badge>
-                            {product.applications?.slice(0, 3).map((app, index) => (
-                              <Badge
-                                key={index}
-                                variant="secondary"
-                                className="text-xs"
-                              >
-                                {app}
-                              </Badge>
-                            ))}
+                            {product.applications
+                              ?.slice(0, 3)
+                              .map((app, index) => (
+                                <Badge
+                                  key={index}
+                                  variant="secondary"
+                                  className="text-xs"
+                                >
+                                  {app}
+                                </Badge>
+                              ))}
                           </div>
                         </div>
                       </div>
@@ -228,6 +231,7 @@ const ProductCatalog = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

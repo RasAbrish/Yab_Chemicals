@@ -8,7 +8,7 @@ const TeamSection = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Ababi Yirega",
+      name: "Ababi Yirga",
       role: "CEO & Founder",
       image:
        `${Image4}`,

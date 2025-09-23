@@ -1,15 +1,18 @@
-import Image1 from "@/assets/Monstral Blue Paste.jpg"
-import Image2 from "@/assets/food fla.jpg"
-import Image3 from "@/assets/Lavarage.jpg"
-import Image4 from "@/assets/Fragrances.jpg"
-import Image5 from "@/assets/Green Apple.jpg"
-import Image6 from "@/assets/Lemon Yellow.jpg"
-import Image7 from "@/assets/Tartrazine.jpg"
-import Image8 from "@/assets/Sunset Yellow.jpg"
-import Image9 from "@/assets/Food Color.jpg"
-import Image10 from "@/assets/Monstral Blue Paste.jpg"
-import Image11 from "@/assets/food fla.jpg"
-import Image12 from "@/assets/Fragrances.jpg"
+import Image1 from "@/assets/Monstral Blue Paste.jpg";
+import Image2 from "@/assets/food fla.jpg";
+import Image3 from "@/assets/Lavarage.jpg";
+import Image4 from "@/assets/Fragrances.jpg";
+import Image5 from "@/assets/Green Apple.jpg";
+import Image6 from "@/assets/Lemon Yellow.jpg";
+import Image7 from "@/assets/Tartrazine.jpg";
+import Image8 from "@/assets/Sunset Yellow.jpg";
+import Image9 from "@/assets/Food Color.jpg";
+import Image10 from "@/assets/Monstral Blue Paste.jpg";
+import Image11 from "@/assets/food fla.jpg";
+import Image12 from "@/assets/Fragrances.jpg";
+import VERONALILAC5023 from "@/assets/VERONA LILAC 5023.jpg";
+import OPERATAN5055 from "@/assets/OPERA TAN 5055.jpg";
+import RIVERTAN5099 from "@/assets/RIVER TAN 5099.jpg";
 export interface Product {
   id: string;
   name: string;
@@ -22,6 +25,7 @@ export interface Product {
 export const categories = [
   "All Categories",
   "Exsclusive Products",
+  "Ceramic",
   "Food and Detergent Colours",
   "Monstral Blue Paste",
   "Food Flavours",
@@ -56,7 +60,8 @@ export const products: Product[] = [
     description:
       "Strong alkali used in soap making, saponification, and pH control.",
     category: "Detergent, Cosmetics & Soap",
-    image: "https://imgs.search.brave.com/A_ySrplkavd4Em4FY0_K7BsFc-RpSwPI_61qkKDyVOU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZS5tYWRlLWluLWNo/aW5hLmNvbS8yMDNm/MGowMGV2YWlBQ0pm/RVdrUS9Tb2xpZC1D/YXVzdGljLVNvZGEt/Rmxha2VzLTk5LUNB/Uy0xMzEwLTczLTIu/d2VicA",
+    image:
+      "https://imgs.search.brave.com/A_ySrplkavd4Em4FY0_K7BsFc-RpSwPI_61qkKDyVOU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZS5tYWRlLWluLWNo/aW5hLmNvbS8yMDNm/MGowMGV2YWlBQ0pm/RVdrUS9Tb2xpZC1D/YXVzdGljLVNvZGEt/Rmxha2VzLTk5LUNB/Uy0xMzEwLTczLTIu/d2VicA",
   },
   {
     id: "dcs-003",
@@ -452,7 +457,89 @@ export const products: Product[] = [
     category: "Shoes & Tannery",
     image: "",
   },
-
+  // ===============================
+  // Ceramic
+  // ===============================
+  {
+    id: "cer-001",
+    name: "VERONA LILAC 5023",
+    description:
+      "Elegant lilac-colored ceramic tile suitable for modern interiors, offering durability and aesthetic appeal.",
+    category: "Ceramic",
+    image: `${VERONALILAC5023}`,
+  },
+  {
+    id: "cer-002",
+    name: "RIVER TAN 5099",
+    description:
+      "Natural tan ceramic tile inspired by river stones, ideal for flooring and wall applications with a rustic feel.",
+    category: "Ceramic",
+    image: `${RIVERTAN5099}`,
+  },
+  {
+    id: "cer-003",
+    name: "OPERA TAN 5055",
+    description:
+      "Sophisticated tan ceramic tile with a smooth finish, perfect for contemporary designs in bathrooms and kitchens.",
+    category: "Ceramic",
+    image: `${OPERATAN5055}`,
+  },
+  {
+    id: "cer-004",
+    name: "MEJESTO BEIGE 5054",
+    description:
+      "Beige ceramic tile with majestic patterns, suitable for elegant home and commercial spaces.",
+    category: "Ceramic",
+    image: "",
+  },
+  {
+    id: "cer-005",
+    name: "ROCK WHITE 5270",
+    description:
+      "White ceramic tile mimicking rock textures, ideal for modern minimalist designs.",
+    category: "Ceramic",
+    image: "",
+  },
+  {
+    id: "cer-006",
+    name: "OAK PEARL 5060",
+    description:
+      "Pearl-finished oak-inspired ceramic tile for warm and inviting interiors.",
+    category: "Ceramic",
+    image: "",
+  },
+  {
+    id: "cer-007",
+    name: "OAK ASH 5321",
+    description:
+      "Ash-toned oak ceramic tile, providing a natural wood-like appearance with ceramic durability.",
+    category: "Ceramic",
+    image: "",
+  },
+  {
+    id: "cer-008",
+    name: "PIETRA IVORY 5217",
+    description:
+      "Ivory stone-like ceramic tile for timeless and versatile applications.",
+    category: "Ceramic",
+    image: "",
+  },
+  {
+    id: "cer-009",
+    name: "KINGWOOD IVORY 5332",
+    description:
+      "Ivory kingwood ceramic tile, offering luxury and strength for high-end projects.",
+    category: "Ceramic",
+    image: "",
+  },
+  {
+    id: "cer-010",
+    name: "SMUDZ BROWN 3057",
+    description:
+      "Brown smudged ceramic tile with artistic patterns, great for creative spaces.",
+    category: "Ceramic",
+    image: "",
+  },
   // ===============================
   // Laundry & Textile
   // ===============================
@@ -476,7 +563,8 @@ export const products: Product[] = [
     name: "Antifoam",
     description: "Defoamer to control foam in washing and dyeing.",
     category: "Laundry & Textile",
-    image: "https://imgs.search.brave.com/TGgrltwiAU1S-u9zp-VtUmsE2zSPX6_Ht0_Y0JFj434/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kY3Qu/Y2xlYW5pbmcvd3At/Y29udGVudC91cGxv/YWRzLzIwMjMvMTAv/QW50aWZvYW0uanBn",
+    image:
+      "https://imgs.search.brave.com/TGgrltwiAU1S-u9zp-VtUmsE2zSPX6_Ht0_Y0JFj434/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kY3Qu/Y2xlYW5pbmcvd3At/Y29udGVudC91cGxv/YWRzLzIwMjMvMTAv/QW50aWZvYW0uanBn",
   },
   {
     id: "ltx-004",
@@ -1304,7 +1392,8 @@ export const products: Product[] = [
   {
     id: "mbp-001",
     name: "Monstral Blue Paste",
-    description: "Phthalocyanine-based blue pigment paste for high-performance coloring in various applications.",
+    description:
+      "Phthalocyanine-based blue pigment paste for high-performance coloring in various applications.",
     category: "Monstral Blue Paste",
     image: `${Image1}`,
   },
@@ -1314,14 +1403,16 @@ export const products: Product[] = [
   {
     id: "ff-001",
     name: "Vanilla",
-    description: "Natural or synthetic vanilla flavoring for baked goods, beverages, and dairy products.",
+    description:
+      "Natural or synthetic vanilla flavoring for baked goods, beverages, and dairy products.",
     category: "Food Flavours",
     image: `${Image2}`,
   },
   {
     id: "ff-002",
     name: "Mint",
-    description: "Cooling mint flavor for confectionery, beverages, and oral care products.",
+    description:
+      "Cooling mint flavor for confectionery, beverages, and oral care products.",
     category: "Food Flavours",
     image: `${Image2}`,
   },
@@ -1332,20 +1423,63 @@ export const products: Product[] = [
     category: "Food Flavours",
     image: `${Image2}`,
   },
-  { id: "ff-004", name: "Orange", description: "Citrus orange flavor for beverages and candies.", category: "Food Flavours", image: "" },
-  { id: "ff-005", name: "Banana", description: "Sweet banana flavor for desserts and drinks.", category: "Food Flavours", image: "" },
-  { id: "ff-006", name: "Apple", description: "Fresh apple flavor for foods and beverages.", category: "Food Flavours", image: "" },
-  { id: "ff-007", name: "Ouzo", description: "Anise-flavored ouzo for specialty beverages.", category: "Food Flavours", image: "" },
-  { id: "ff-008", name: "Caramel", description: "Rich caramel flavor for sweets and sauces.", category: "Food Flavours", image: "" },
-  { id: "ff-009", name: "Chocolate", description: "Deep chocolate flavor for confections and drinks.", category: "Food Flavours", image: "" },
-  { id: "ff-010", name: "Cappuccino", description: "Coffee-milk cappuccino flavor for beverages.", category: "Food Flavours", image: "" },
+  {
+    id: "ff-004",
+    name: "Orange",
+    description: "Citrus orange flavor for beverages and candies.",
+    category: "Food Flavours",
+    image: "",
+  },
+  {
+    id: "ff-005",
+    name: "Banana",
+    description: "Sweet banana flavor for desserts and drinks.",
+    category: "Food Flavours",
+    image: "",
+  },
+  {
+    id: "ff-006",
+    name: "Apple",
+    description: "Fresh apple flavor for foods and beverages.",
+    category: "Food Flavours",
+    image: "",
+  },
+  {
+    id: "ff-007",
+    name: "Ouzo",
+    description: "Anise-flavored ouzo for specialty beverages.",
+    category: "Food Flavours",
+    image: "",
+  },
+  {
+    id: "ff-008",
+    name: "Caramel",
+    description: "Rich caramel flavor for sweets and sauces.",
+    category: "Food Flavours",
+    image: "",
+  },
+  {
+    id: "ff-009",
+    name: "Chocolate",
+    description: "Deep chocolate flavor for confections and drinks.",
+    category: "Food Flavours",
+    image: "",
+  },
+  {
+    id: "ff-010",
+    name: "Cappuccino",
+    description: "Coffee-milk cappuccino flavor for beverages.",
+    category: "Food Flavours",
+    image: "",
+  },
   // ===============================
   // Fragrances
   // ===============================
   {
     id: "frg-001",
     name: "Lavander",
-    description: "Soothing lavender fragrance for soaps, detergents, and cosmetics.",
+    description:
+      "Soothing lavender fragrance for soaps, detergents, and cosmetics.",
     category: "Fragrances",
     image: `${Image3}`,
   },
@@ -1363,44 +1497,133 @@ export const products: Product[] = [
     category: "Fragrances",
     image: `${Image5}`,
   },
-  { id: "frg-004", name: "Sunset Aerial", description: "Unique sunset-inspired fragrance for ambient products.", category: "Fragrances", image: "" },
-  { id: "frg-005", name: "Pomegranate Juice", description: "Fruity pomegranate fragrance for soaps and detergents.", category: "Fragrances", image: "" },
-  { id: "frg-006", name: "Floral Blast", description: "Intense floral blend fragrance for various applications.", category: "Fragrances", image: "" },
-  { id: "frg-007", name: "Zesty Lemon Grass", description: "Citrusy lemongrass fragrance for fresh scents.", category: "Fragrances", image: "" },
-  { id: "frg-008", name: "Dettoline", description: "Special dettoline fragrance for cleaning products.", category: "Fragrances", image: "" },
-  { id: "frg-009", name: "Lemon Breez", description: "Light lemon breeze fragrance for air fresheners and detergents.", category: "Fragrances", image: "" },
+  {
+    id: "frg-004",
+    name: "Sunset Aerial",
+    description: "Unique sunset-inspired fragrance for ambient products.",
+    category: "Fragrances",
+    image: "",
+  },
+  {
+    id: "frg-005",
+    name: "Pomegranate Juice",
+    description: "Fruity pomegranate fragrance for soaps and detergents.",
+    category: "Fragrances",
+    image: "",
+  },
+  {
+    id: "frg-006",
+    name: "Floral Blast",
+    description: "Intense floral blend fragrance for various applications.",
+    category: "Fragrances",
+    image: "",
+  },
+  {
+    id: "frg-007",
+    name: "Zesty Lemon Grass",
+    description: "Citrusy lemongrass fragrance for fresh scents.",
+    category: "Fragrances",
+    image: "",
+  },
+  {
+    id: "frg-008",
+    name: "Dettoline",
+    description: "Special dettoline fragrance for cleaning products.",
+    category: "Fragrances",
+    image: "",
+  },
+  {
+    id: "frg-009",
+    name: "Lemon Breez",
+    description:
+      "Light lemon breeze fragrance for air fresheners and detergents.",
+    category: "Fragrances",
+    image: "",
+  },
   // ===============================
   // Food and Detergent Colours
   // ===============================
   {
     id: "fdc-001",
     name: "Lemon Yellow",
-    description: "Bright yellow colorant used in food products and detergents for vibrant coloring.",
+    description:
+      "Bright yellow colorant used in food products and detergents for vibrant coloring.",
     category: "Food and Detergent Colours",
     image: `${Image6}`,
   },
   {
     id: "fdc-002",
     name: "Tartrazine",
-    description: "Synthetic lemon yellow azo dye commonly used in foods, beverages, and detergents.",
+    description:
+      "Synthetic lemon yellow azo dye commonly used in foods, beverages, and detergents.",
     category: "Food and Detergent Colours",
     image: `${Image7}`,
   },
   {
     id: "fdc-003",
     name: "Sunset Yellow",
-    description: "Orange-yellow dye for coloring foods, cosmetics, and cleaning products.",
+    description:
+      "Orange-yellow dye for coloring foods, cosmetics, and cleaning products.",
     category: "Food and Detergent Colours",
     image: `${Image8}`,
   },
-  { id: "fdc-004", name: "Apple Green", description: "Green colorant for food and detergent applications.", category: "Food and Detergent Colours", image: "" },
-  { id: "fdc-005", name: "Alura Red", description: "Bright red dye for foods and detergents.", category: "Food and Detergent Colours", image: "" },
-  { id: "fdc-006", name: "Tomato Red", description: "Red colorant mimicking tomato hues for food coloring.", category: "Food and Detergent Colours", image: "" },
-  { id: "fdc-007", name: "Dark Brawn Chocolate", description: "Brown colorant for chocolate-like shades in foods and products.", category: "Food and Detergent Colours", image: "" },
-  { id: "fdc-008", name: "Rose Pink", description: "Soft pink dye for cosmetics, foods, and detergents.", category: "Food and Detergent Colours", image: "" },
-  { id: "fdc-009", name: "Brilliant Blue", description: "Vibrant blue colorant for food and cleaning products.", category: "Food and Detergent Colours", image: "" },
-  { id: "fdc-010", name: "Egg Yellow", description: "Yellow dye simulating egg yolk color for foods.", category: "Food and Detergent Colours", image: "" },
-  { id: "fdc-011", name: "Ponceau", description: "Red azo dye used in food and detergent coloring.", category: "Food and Detergent Colours", image: "" },
+  {
+    id: "fdc-004",
+    name: "Apple Green",
+    description: "Green colorant for food and detergent applications.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
+  {
+    id: "fdc-005",
+    name: "Alura Red",
+    description: "Bright red dye for foods and detergents.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
+  {
+    id: "fdc-006",
+    name: "Tomato Red",
+    description: "Red colorant mimicking tomato hues for food coloring.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
+  {
+    id: "fdc-007",
+    name: "Dark Brawn Chocolate",
+    description:
+      "Brown colorant for chocolate-like shades in foods and products.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
+  {
+    id: "fdc-008",
+    name: "Rose Pink",
+    description: "Soft pink dye for cosmetics, foods, and detergents.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
+  {
+    id: "fdc-009",
+    name: "Brilliant Blue",
+    description: "Vibrant blue colorant for food and cleaning products.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
+  {
+    id: "fdc-010",
+    name: "Egg Yellow",
+    description: "Yellow dye simulating egg yolk color for foods.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
+  {
+    id: "fdc-011",
+    name: "Ponceau",
+    description: "Red azo dye used in food and detergent coloring.",
+    category: "Food and Detergent Colours",
+    image: "",
+  },
   // ===============================
   // Exsclusive Products
   // ===============================
@@ -1410,8 +1633,7 @@ export const products: Product[] = [
     description:
       "Available in: Lemon yellow, Tartrazine, Sunset yellow, Apple green, Alura red, Tomato red, Dark brawn chocolate, Rose pink, Brilliant blue, Egg yellow, Ponceau",
     category: "Exsclusive Products",
-    image:
-      `${Image9}`,
+    image: `${Image9}`,
   },
   {
     id: "exp-002",
@@ -1419,8 +1641,7 @@ export const products: Product[] = [
     description:
       "Special high-quality blue pigment paste for coloring applications in food, detergents, and more.",
     category: "Exsclusive Products",
-    image:
-     `${Image10}`,
+    image: `${Image10}`,
   },
   {
     id: "exp-003",
@@ -1436,7 +1657,7 @@ export const products: Product[] = [
     description:
       "Available in: Lavander, Zaffran, Green Apple, Sunset aerial, Pomegranate juice, Floral Blast, Zesty lemon grass, Dettoline, Lemon breez",
     category: "Exsclusive Products",
-    image: `${Image12}`, 
+    image: `${Image12}`,
   },
   // Sub-lists as individual products with empty images for list display
   {

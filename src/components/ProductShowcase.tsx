@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image1 from "@/assets/hero-chemicals.jpg"
+import Footer from "./Footer";
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -320,6 +321,7 @@ const AboutPage = () => {
           </motion.ul>
         </motion.div>
       </motion.div>
+     
     </div>
   );
 };
